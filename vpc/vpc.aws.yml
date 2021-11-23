@@ -8,5 +8,29 @@ Resources:
       Tags:
         - Key: Name
           Value: vpc-0
-  # Create a subnet
-  # Add network interface
+
+# Create a subnet (public and private)
+# Add network interface for ec2 (for public IPs)
+# Create a route table
+  # Each subnet must be associated with a route table
+# Internet gateway
+  # Provides a target in the vpc route table for internet-routable traffic
+  # Perform network address translation (NAT) for instances that have been assigned public IPv4 addresses
+
+# Bastions aka Jumpboxes
+  # Public subnet ec2 instances that are used to access private subnet ec2 instances
+  # This architecture includes a NAT Gateway in order to function, refer to 01:22:08 for diagram
+  # AWS already has a feature that does this functionality called Sessions Manager
+
+# Direct Connect
+  # Establishes a dedicated network connection to an on-prem location
+
+# VPC Endpoints
+  # Allows the vpc to connect to other AWS services without leaving the AWS network
+  # Two types: interface and gateway endpoints
+  # Interface Endpoints (AWS PrivateLink)
+    # An Elastic Network Interface with a private IP, serving as an entry point for traffic going to a supported service
+  # Gateway Endpoints
+    # Target for a specific route in the route table, used for traffic destined for a supported AWS service
+    # Supports a limited number of services: S3 and DynamoDB
+
