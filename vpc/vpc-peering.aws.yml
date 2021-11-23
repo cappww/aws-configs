@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  VPCInstance:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.1.0.0/16
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: vpc-1
+  VPCPeering:
+    Type: AWS::EC2::VPCPeeringConnection
+    Properties: 
+      PeerRegion: us-east-2
+      PeerVpcId: vpc-07f55a75179399e8d
+      Tags: 
+        - Key: Name
+          Value: peer-test
+      VpcId: !Ref VPCInstance

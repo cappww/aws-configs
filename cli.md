@@ -11,3 +11,11 @@ aws s3api put-bucket-versioning \
     --versioning-configuration Status=Enabled,MFADelete=Enabled \
     --mfa "<mfa-serial-number> <mfa-code>"
 ```
+
+# Cloudformation
+```
+aws --region <region-name> cloudformation create-stack \
+  --stack-name <template-name> \
+  --template-body <template-contents>
+
+```

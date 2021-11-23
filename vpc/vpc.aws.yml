@@ -4,6 +4,9 @@ Resources:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
       Tags:
         - Key: Name
-          Value: custom-vpc
+          Value: vpc-0
+  # Create a subnet
+  # Add network interface
