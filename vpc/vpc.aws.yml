@@ -9,13 +9,14 @@ Resources:
         - Key: Name
           Value: vpc-0
 
-# Create a subnet (public and private)
-# Add network interface for ec2 (for public IPs)
-# Create a route table
+# Route Table
   # Each subnet must be associated with a route table
+  # If the subnets route table does not route to an internet gateway, then it is a private subnet
+
 # Internet gateway
   # Provides a target in the vpc route table for internet-routable traffic
   # Perform network address translation (NAT) for instances that have been assigned public IPv4 addresses
+  # Only one IGW per VPC
 
 # Bastions aka Jumpboxes
   # Public subnet ec2 instances that are used to access private subnet ec2 instances
@@ -27,10 +28,36 @@ Resources:
 
 # VPC Endpoints
   # Allows the vpc to connect to other AWS services without leaving the AWS network
-  # Two types: interface and gateway endpoints
+  # Three types: interface endpoints, gateway endpoints, Gateway load balancer endpoints
   # Interface Endpoints (AWS PrivateLink)
     # An Elastic Network Interface with a private IP, serving as an entry point for traffic going to a supported service
   # Gateway Endpoints
     # Target for a specific route in the route table, used for traffic destined for a supported AWS service
     # Supports a limited number of services: S3 and DynamoDB
+    # Network Address Translation
+  # Method of remapping one IP address to another
+  # Used if a private subnet needs access to the internet, maps the private IPs to public IPs
+  # Can also be used when two subnets have colliding IPs
 
+# NAT Instances (legacy)
+  # Individual ec2 instance
+  # Have to run in a public subnet
+
+# NAT Gateways
+  # Managed service for a given AZ
+  # Only one NAT Gateway per AZ
+  # Automatically assigned a public IP Address
+
+# NACL
+  # Come with VPCs by default
+  # It can allow or deny traffic into and out of subnets
+  # It can deny ports and IPs
+  # Each subnet must have exactly one nacl
+
+# Security Groups
+  # Virtual firewall at the instance level
+  
+# VPC Flow Logs
+  # Captures traffic information
+  # Stored in AWS CloudWatch Logs or s3 buckets
+  # Stored source IP address and destination IP Addresses

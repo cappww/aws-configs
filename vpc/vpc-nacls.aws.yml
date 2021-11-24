@@ -1,9 +1,0 @@
-# NACL
-  # Come with VPCs by default
-  # It can allow or deny traffic into and out of subnets
-  # It can deny ports and IPs
-  # Each subnet must have exactly one nacl
-
-# Security Groups
-  # Virtual firewall at the instance level
-  

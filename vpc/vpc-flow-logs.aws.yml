@@ -1,4 +1,0 @@
-# VPC Flow Logs
-  # Captures traffic information
-  # Stored in AWS CloudWatch Logs or s3 buckets
-  # Stored source IP address and destination IP Addresses

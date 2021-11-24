@@ -1,0 +1,6 @@
+# https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-scenarios
+# How to Perform a Jumpbox:
+  # Create a NAT Gateway with a Public connectivity type in a public subnet
+  # Create a route table for the private subnet
+    # Destination: 0.0.0.0/0, Target: the public NAT Gateway
+  
